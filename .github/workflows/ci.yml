@@ -28,11 +28,11 @@ jobs:
           file: ./Dockerfile
           platforms: linux/amd64,linux/arm64,linux/386
           push: true
-          tags: aitorpazos/nextcloud-news-updater:${{ github.sha }}
+          tags: aitorpazos/nextcloud-news-updater:latest
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@0.0.8
         with:
-          image-ref: 'aitorpazos/nextcloud-news-updater:${{ github.sha }}'
+          image-ref: 'aitorpazos/nextcloud-news-updater:latest'
           format: 'template'
           template: '@/contrib/sarif.tpl'
           output: 'trivy-results.sarif'
