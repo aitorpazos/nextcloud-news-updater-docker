@@ -7,4 +7,4 @@ build:
 
 .PHONY: lint
 lint:
-	docker run -it --rm -v $(shell pwd):/root/ projectatomic/dockerfile-lint dockerfile_lint
+	docker run --rm -it -v $(shell pwd)/Dockerfile:/Dockerfile replicated/dockerfilelint /Dockerfile
