@@ -1,11 +1,12 @@
 FROM python:alpine
 
 ARG VERSION=latest
+ARG APP_VERSION=11.0.0
 
 ADD entrypoint.sh /usr/local/bin/entrypoint.sh
 
 RUN apk add php && \
-    pip3 install nextcloud_news_updater && \
+    pip3 install nextcloud_news_updater==${APP_VERSION} && \
     chmod +x /usr/local/bin/entrypoint.sh
 
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
