@@ -7,7 +7,7 @@ on:
 name: Create Release
 
 jobs:
-  build:
+  Build:
     name: Create Release
     runs-on: ubuntu-latest
     steps:
@@ -33,7 +33,7 @@ jobs:
           tags: aitorpazos/nextcloud-news-updater:${{ github.sha }}
       - uses: Azure/container-scan@v0
         with:
-          image-name: contoso.azurecr.io/k8sdemo:${{ github.sha }}
+          image-name: aitorpazos/nextcloud-news-updater:${{ github.sha }}
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1

@@ -1,7 +1,7 @@
 name: Run CI build
 on: [push]
 jobs:
-  lint:
+  Lint:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -26,4 +26,4 @@ jobs:
           tags: aitorpazos/nextcloud-news-updater:${{ github.sha }}
       - uses: Azure/container-scan@v0
         with:
-          image-name: contoso.azurecr.io/k8sdemo:${{ github.sha }}
+          image-name: aitorpazos/nextcloud-news-updater:${{ github.sha }}
