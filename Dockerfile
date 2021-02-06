@@ -10,7 +10,9 @@ RUN apk add php && \
 
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 
-LABEL org.opencontainers.image.url="https://github.com/nextcloud/news-updater" \
+LABEL Name="Nextcloud-news-updater" \
+      Version="${VERSION}" \
+      org.opencontainers.image.url="https://github.com/nextcloud/news-updater" \
       org.opencontainers.image.source="https://github.com/aitorpazos/nextcloud-news-updater-docker" \
       org.opencontainers.image.authors="Aitor Pazos<mail@aitorpazos.es>" \
       org.opencontainers.image.licenses="GPLv3" \
