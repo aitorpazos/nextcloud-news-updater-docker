@@ -5,7 +5,7 @@ ARG APP_VERSION=11.0.0
 
 ADD entrypoint.sh /usr/local/bin/entrypoint.sh
 
-RUN apk add php && \
+RUN apk add --no-cache php && \
     pip3 install nextcloud_news_updater==${APP_VERSION} && \
     chmod +x /usr/local/bin/entrypoint.sh
 
