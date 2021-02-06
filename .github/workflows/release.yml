@@ -31,9 +31,17 @@ jobs:
           platforms: linux/amd64,linux/arm64,linux/386
           push: false
           tags: aitorpazos/nextcloud-news-updater:${{ github.sha }}
-      - uses: Azure/container-scan@v0
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@0.0.8
         with:
-          image-name: aitorpazos/nextcloud-news-updater:${{ github.sha }}
+          image-ref: 'aitorpazos/nextcloud-news-updater:${{ github.sha }}'
+          format: 'template'
+          template: '@/contrib/sarif.tpl'
+          output: 'trivy-results.sarif'
+      - name: Upload Trivy scan results to GitHub Security tab
+        uses: github/codeql-action/upload-sarif@v1
+        with:
+          sarif_file: 'trivy-results.sarif'
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
