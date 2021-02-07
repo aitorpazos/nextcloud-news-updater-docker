@@ -2,9 +2,11 @@
 
 ![Run CI build](https://github.com/aitorpazos/nextcloud-news-updater-docker/workflows/Run%20CI%20build/badge.svg)
 
+**WARNING: This image is not yet working**
+
 This repository builds a docker image to run external nextcloud news updater script.
 
-It packages the cron updater provided by https://github.com/nextcloud/news-updater
+It packages the cron updater provided by https://github.com/nextcloud/news-updater.
 
 # Usage
 
